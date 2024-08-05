@@ -1,6 +1,6 @@
 # EcoSteno Custom Keymaps
 
-This repository contains the custom keymaps for the Ecosteno keyboard. It also contains the guide on how to set up the keymaps.
+This repository contains the custom keymaps for the EcoSteno keyboard. It also contains the guide on how to set up the keymaps.
 
 # Table of Contents
 
@@ -52,7 +52,7 @@ brew install qmk/qmk/qmk
 qmk setup
 ```
 
-Answer 'Y' to all the prompts.
+Answer `Y` to all the prompts.
 
 ## 3. Copy the keyboard to the QMK directory
 
