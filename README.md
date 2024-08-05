@@ -15,9 +15,9 @@ This repository contains the custom keymaps for the Ecosteno keyboard. It also c
   - [3. Copy the keyboard to the QMK directory](#3-copy-the-keyboard-to-the-qmk-directory)
   - [4. Test Build Environment](#4-test-build-environment)
 - [Remapping Keys](#remapping-keys)
-  - [Edit the Keymap File](#edit-the-keymap-file)
-  - [Copy the Keymap to the QMK Directory](#copy-the-keymap-to-the-qmk-directory)
-  - [Compile the Keymap](#compile-the-keymap)
+  - [1. Edit the Keymap File](#1-edit-the-keymap-file)
+  - [2. Copy the Keymap to the QMK Directory](#2-copy-the-keymap-to-the-qmk-directory)
+  - [3. Compile the Keymap](#3-compile-the-keymap)
 - [Flashing the Keyboard](#flashing-the-keyboard)
 
 # Related Articles
