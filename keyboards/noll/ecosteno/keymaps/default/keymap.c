@@ -448,7 +448,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_TAB,         KC_ESC,                                KC_ENTER,        KC_BSPC,
     TO(STENO),  KC_Q,   KC_W,   KC_E, KC_R,    KC_T,       KC_Y, KC_U, KC_I,    KC_O,   KC_P,     KC_QUOT,
     MO(SYMBOL), KC_Z,   KC_X,   KC_C, KC_V,    KC_B,       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH, MO(QWERTY_CAPS),
-                                      KC_LCTL, KC_SPACE,   KC_SPACE, KC_RALT 
+                                      KC_LCTL, KC_LEFT_GUI,   KC_SPACE, KC_RALT 
   ),
 
   [QWERTY_CAPS] = LAYOUT(
