@@ -1,10 +1,10 @@
-# Ecosteno Custom Keymaps
+# EcoSteno Custom Keymaps
 
 This repository contains the custom keymaps for the Ecosteno keyboard. It also contains the guide on how to set up the keymaps.
 
 # Table of Contents
 
-- [Ecosteno Custom Keymaps](#ecosteno-custom-keymaps)
+- [EcoSteno Custom Keymaps](#ecosteno-custom-keymaps)
 - [Table of Contents](#table-of-contents)
 - [Related Articles](#related-articles)
 - [Pre-requisites](#pre-requisites)
@@ -23,13 +23,14 @@ This repository contains the custom keymaps for the Ecosteno keyboard. It also c
 # Related Articles
 
 - [QMK Firmware Guide](https://docs.qmk.fm/newbs)
+- [Default EcoSteno Firmware by Nolltronics](https://github.com/nkotech/EcoSteno-Firmware)
 
 # Pre-requisites
 
 - EcoSteno Keyboard
 - MacOS
 - [Homebrew](https://brew.sh/)
-- [EcoSteno Firmware](https://github.com/afiqzudinhadi/EcoSteno-Firmware)
+- This Repository - [Custom EcoSteno Keymap](https://github.com/afiqzudinhadi/EcoSteno-Firmware)
 
 # Clone Repository
 
