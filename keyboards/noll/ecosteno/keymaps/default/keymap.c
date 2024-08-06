@@ -468,9 +468,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [CUSTOM] = LAYOUT(
              KC_TAB,           KC_ESC,                                             KC_ENTER,           KC_BSPC,
-    KC_GRV,  KC_EXLM, KC_AT,   KC_LT,   KC_GT,   KC_BSLS,       KC_PLUS,  KC_PLUS, KC_UP,   KC_SLASH,  KC_ASTR,   TO(QWERTY),
-    KC_LSFT, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_GRAVE,      KC_MINS,  KC_LEFT, KC_DOWN, KC_RIGHT,  KC_SLASH,  KC_RSFT,
-                                        KC_LCTL, KC_LEFT_GUI,   KC_SPACE, KC_RALT 
+    KC_GRV,  KC_EXLM, KC_AT,   KC_LT, KC_GT,   KC_BSLS,       KC_PLUS,  KC_PLUS, KC_UP,   KC_SLASH,  KC_ASTR,   TO(QWERTY),
+    KC_LSFT, KC_Z,    KC_X,    KC_C,  KC_V,    KC_GRAVE,      KC_MINS,  KC_LEFT, KC_DOWN, KC_RIGHT,  KC_SLASH,  KC_RSFT,
+                                      KC_LCTL, KC_LEFT_GUI,   KC_SPACE, KC_RALT 
   )
 };
 
