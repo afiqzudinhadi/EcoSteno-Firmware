@@ -22,7 +22,8 @@ enum layers{
   NKRO,
   QWERTY,
   QWERTY_CAPS,
-  SYMBOL
+  SYMBOL,
+  CUSTOM
 };
 
 enum combo_events {
