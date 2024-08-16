@@ -433,44 +433,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [STENO] = LAYOUT(
                 STN_N2,         STN_N4,                                     STN_N8,         STN_NA,      
-    TO(NKRO),   STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1,   STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
+    TO(QWERTY),   STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1,   STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
     MO(SYMBOL), STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2,   STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
                                         STN_A,  STN_O,     STN_E,  STN_U 
   ),
 
-  [NKRO] = LAYOUT(
-                KC_2,       KC_4,                           KC_8,       KC_0,
-    TO(QWERTY), KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I, KC_O, KC_P,    KC_LBRC,
-    MO(SYMBOL), KC_A, KC_S, KC_D, KC_F, KC_G,   KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
-                                  KC_C, KC_V,   KC_N, KC_M 
-  ),
+  // [NKRO] = LAYOUT(
+  //               KC_2,       KC_4,                           KC_8,       KC_0,
+  //   TO(QWERTY), KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I, KC_O, KC_P,    KC_LBRC,
+  //   MO(SYMBOL), KC_A, KC_S, KC_D, KC_F, KC_G,   KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
+  //                                 KC_C, KC_V,   KC_N, KC_M 
+  // ),
 
   [QWERTY] = LAYOUT(
-                KC_TAB,         KC_ESC,                                   KC_ENTER,        KC_BSPC,
-    TO(STENO),  KC_Q,   KC_W,   KC_E, KC_R,    KC_T,          KC_Y, KC_U, KC_I,    KC_O,   KC_P,     KC_QUOT,
-    TO(CUSTOM), KC_Z,   KC_X,   KC_C, KC_V,    KC_B,          KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH, MO(QWERTY_CAPS),
+                KC_TAB,         KC_ESC,                             KC_ENTER,      KC_BSPC,
+    TO(CUSTOM), KC_Q,   KC_W,   KC_E, KC_R,    KC_T,          KC_Y, KC_U, KC_I,    KC_O,   KC_P,     KC_QUOT,
+    MO(SYMBOL), KC_Z,   KC_X,   KC_C, KC_V,    KC_B,          KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH, MO(QWERTY_CAPS),
                                       KC_LCTL, KC_LEFT_GUI,   KC_SPACE, KC_RALT 
   ),
 
   [QWERTY_CAPS] = LAYOUT(
-                S(KC_TAB),        S(KC_ESC),                                     S(KC_ENTER),           S(KC_BSPC),
-    TO(STENO),  S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T),   S(KC_Y), S(KC_U), S(KC_I),    S(KC_O),   S(KC_P),     S(KC_QUOT),
-    MO(SYMBOL), S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),   S(KC_N), S(KC_M), S(KC_COMM), S(KC_DOT), S(KC_SLASH), KC_RSFT,
-                                          KC_LCTL, KC_SPACE,   KC_SPACE, KC_RALT 
+                S(KC_TAB),        S(KC_ESC),                               S(KC_ENTER),          S(KC_BSPC),
+    TO(CUSTOM), S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T),      S(KC_Y), S(KC_U), S(KC_I),     S(KC_O),   S(KC_P),     S(KC_QUOT),
+    MO(SYMBOL), S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),      S(KC_N), S(KC_M), S(KC_COMM),  S(KC_DOT), S(KC_SLASH), KC_RSFT,
+                                           KC_LCTL, KC_LEFT_GUI,  KC_SPACE, KC_RALT 
   ),
 
   [SYMBOL] = LAYOUT(
-             KC_HASH,          KC_DOLLAR,                                       KC_LPRN,            KC_RPRN,
-    _______, KC_EXLM, KC_AT,   KC_LT,   KC_GT,   KC_BSLS,    KC_DQT,   KC_PLUS, KC_MINS,  KC_SLASH, KC_ASTR, KC_TAB,
-    _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_GRAVE,   KC_MINS,  KC_AMPR, KC_EQUAL, KC_COMM,  KC_DOT,  KC_RSFT,
-                                        KC_SCLN, KC_SPACE,   KC_SPACE, KC_SLASH 
+             KC_HASH,          KC_DOLLAR,                                 KC_LPRN,           KC_RPRN,
+    _______, KC_EXLM, KC_AT,   KC_LT,   KC_GT,   KC_BSLS,       KC_DQT,   KC_PLUS, KC_MINS,  KC_SLASH, KC_ASTR, KC_TAB,
+    _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_GRAVE,      KC_MINS,  KC_AMPR, KC_EQUAL, KC_COMM,  KC_DOT,  KC_RSFT,
+                                        KC_SCLN, KC_LEFT_GUI,   KC_SPACE, KC_SLASH 
   ),
 
   [CUSTOM] = LAYOUT(
-             KC_TAB,          KC_ESC,                                             KC_ENTER,         KC_BSPC,
-    KC_GRV,  KC_EXLM, KC_AT,  KC_LT,   KC_GT,   KC_KB_VOLUME_UP,        KC_PLUS,  KC_PLUS, KC_UP,   KC_SLASH,  KC_ASTR,   TO(QWERTY),
-    KC_LSFT, KC_UNDO, KC_CUT, KC_COPY  KC_PSTE, KC_KB_VOLUME_DOWN,      KC_MINS,  KC_LEFT, KC_DOWN, KC_RIGHT,  KC_SLASH,  KC_RSFT,
-                                      KC_LCTL, KC_LEFT_GUI,   KC_SPACE, KC_RALT 
+                KC_TAB,           KC_ESC,                                          KC_ENTER,          KC_BSPC,
+    TO(QWERTY), KC_EXLM, KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV,              KC_PLUS,  KC_EQUAL, KC_UP,   KC_SLASH,  KC_ASTR,   TO(STENO),
+    KC_RSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_KB_VOLUME_DOWN,   KC_MINS,  KC_LEFT,  KC_DOWN, KC_RIGHT,  KC_SLASH,  KC_RSFT,
+                                           KC_LCTL, KC_LEFT_GUI,         KC_SPACE, KC_RALT
   )
 };
 
