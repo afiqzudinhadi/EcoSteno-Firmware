@@ -19,11 +19,12 @@
 
 enum layers{
   STENO,
-  NKRO,
+  // NKRO,
   QWERTY,
   QWERTY_CAPS,
-  SYMBOL,
-  CUSTOM
+  // SYMBOL,
+  LAYER1,
+  LAYER2
 };
 
 enum combo_events {
@@ -433,8 +434,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [STENO] = LAYOUT(
                 STN_N2,         STN_N4,                                     STN_N8,         STN_NA,      
-    TO(QWERTY),   STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1,   STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
-    MO(SYMBOL), STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2,   STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
+    TO(QWERTY), STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1,   STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
+    _______,    STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2,   STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
                                         STN_A,  STN_O,     STN_E,  STN_U 
   ),
 
@@ -447,30 +448,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [QWERTY] = LAYOUT(
                 KC_TAB,         KC_ESC,                             KC_ENTER,      KC_BSPC,
-    TO(CUSTOM), KC_Q,   KC_W,   KC_E, KC_R,    KC_T,          KC_Y, KC_U, KC_I,    KC_O,   KC_P,     KC_QUOT,
-    MO(SYMBOL), KC_Z,   KC_X,   KC_C, KC_V,    KC_B,          KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH, MO(QWERTY_CAPS),
+    TO(LAYER1), KC_Q,   KC_W,   KC_E, KC_R,    KC_T,          KC_Y, KC_U, KC_I,    KC_O,   KC_P,     KC_QUOT,
+    MO(LAYER1), KC_Z,   KC_X,   KC_C, KC_V,    KC_B,          KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH, MO(QWERTY_CAPS),
                                       KC_LCTL, KC_LEFT_GUI,   KC_SPACE, KC_RALT 
   ),
 
   [QWERTY_CAPS] = LAYOUT(
-                S(KC_TAB),        S(KC_ESC),                               S(KC_ENTER),          S(KC_BSPC),
-    TO(CUSTOM), S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T),      S(KC_Y), S(KC_U), S(KC_I),     S(KC_O),   S(KC_P),     S(KC_QUOT),
-    MO(SYMBOL), S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),      S(KC_N), S(KC_M), S(KC_COMM),  S(KC_DOT), S(KC_SLASH), KC_RSFT,
+                S(KC_TAB),        S(KC_ESC),                               S(KC_ENTER),         S(KC_BSPC),
+    TO(LAYER1), S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T),      S(KC_Y), S(KC_U), S(KC_I),    S(KC_O),   S(KC_P),     S(KC_QUOT),
+    MO(LAYER1), S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),      S(KC_N), S(KC_M), S(KC_COMM), S(KC_DOT), S(KC_SLASH), KC_RSFT,
                                            KC_LCTL, KC_LEFT_GUI,  KC_SPACE, KC_RALT 
   ),
 
-  [SYMBOL] = LAYOUT(
-             KC_HASH,          KC_DOLLAR,                                 KC_LPRN,           KC_RPRN,
-    _______, KC_EXLM, KC_AT,   KC_LT,   KC_GT,   KC_BSLS,       KC_DQT,   KC_PLUS, KC_MINS,  KC_SLASH, KC_ASTR, KC_TAB,
-    _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_GRAVE,      KC_MINS,  KC_AMPR, KC_EQUAL, KC_COMM,  KC_DOT,  KC_RSFT,
-                                        KC_SCLN, KC_LEFT_GUI,   KC_SPACE, KC_SLASH 
+  // [SYMBOL] = LAYOUT(
+  //            KC_HASH,          KC_DOLLAR,                                 KC_LPRN,           KC_RPRN,
+  //   _______, KC_EXLM, KC_AT,   KC_LT,   KC_GT,   KC_BSLS,       KC_DQT,   KC_PLUS, KC_MINS,  KC_SLASH, KC_ASTR, KC_TAB,
+  //   _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_GRAVE,      KC_MINS,  KC_AMPR, KC_EQUAL, KC_COMM,  KC_DOT,  KC_RSFT,
+  //                                       KC_SCLN, KC_LEFT_GUI,   KC_SPACE, KC_SLASH 
+  // ),
+
+  [LAYER1] = LAYOUT(
+                KC_TAB,           KC_ESC,                                          KC_ENTER,          KC_BSPC,
+    TO(LAYER2), KC_GRV,  _______, _______, KC_BSLS, KC_KB_VOLUME_UP,     KC_PLUS,  KC_LBRC,  KC_UP,   KC_RBRC,  KC_ASTR,  KC_EQUAL,
+    KC_RSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_KB_VOLUME_DOWN,   KC_MINS,  KC_LEFT,  KC_DOWN, KC_RIGHT, KC_SLASH, KC_RSFT,
+                                           KC_LCTL, KC_LEFT_GUI,         KC_SPACE, KC_RALT
   ),
 
-  [CUSTOM] = LAYOUT(
-                KC_TAB,           KC_ESC,                                          KC_ENTER,          KC_BSPC,
-    TO(QWERTY), KC_EXLM, KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV,              KC_PLUS,  KC_EQUAL, KC_UP,   KC_SLASH,  KC_ASTR,   TO(STENO),
-    KC_RSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_KB_VOLUME_DOWN,   KC_MINS,  KC_LEFT,  KC_DOWN, KC_RIGHT,  KC_SLASH,  KC_RSFT,
-                                           KC_LCTL, KC_LEFT_GUI,         KC_SPACE, KC_RALT
+  [LAYER2] = LAYOUT(
+                KC_KB_VOLUME_DOWN,   KC_KB_VOLUME_UP,                           KC_BRID,          KC_BRIU,
+    TO(QWERTY), KC_KB_MUTE, KC_MSEL, KC_MPRV, KC_MPLY, KC_MNXT,       _______,  _______, _______, _______,  _______, TO(STENO),
+    KC_RSFT,    KC_Z,       KC_X,    KC_C,    KC_V,    _______,       _______,  _______, _______, _______,  _______, _______,
+                                              KC_LCTL, KC_LEFT_GUI,   KC_SPACE, KC_RALT
   )
 };
 
@@ -478,6 +486,12 @@ void matrix_init_user(void) {
   // this shouldn't be needed in modern versions of QMK
 };
 
+// GPIOA 0 is red LED
+// GPIOA 1 is green LED
+// palSetPad(GPIOA, 0); // red LED on
+// palClearPad(GPIOA, 0); // red LED off
+// palSetPad(GPIOA, 1); // green LED on
+// palClearPad(GPIOA, 1); // green LED off
 layer_state_t layer_state_set_user(layer_state_t state) {
     // or uint8_t layer = get_highest_layer(state);
     switch (get_highest_layer(state)) {
@@ -502,22 +516,34 @@ layer_state_t layer_state_set_user(layer_state_t state) {
           // green LED off
           palClearPad(GPIOA,1);
           break;
-        case (NKRO): 
+        // case (NKRO): 
+        //   combo_disable();
+        //   palClearPad(GPIOA, 1);
+        //   palClearPad(GPIOA, 0);
+        //   break;
+        // case (SYMBOL):
+        //   // both LEDs on for Symbol
+        //   combo_disable();
+        //   palSetPad(GPIOA, 1);
+        //   palSetPad(GPIOA, 0);
+        //   break;
+        case (LAYER1):
+          // both LEDs on for Layer1
           combo_disable();
-          palClearPad(GPIOA, 1);
-          palClearPad(GPIOA, 0);
-          break;
-        case (SYMBOL):
-          // both LEDs on for Symbol
-          combo_disable();
-          palSetPad(GPIOA, 1);
           palSetPad(GPIOA, 0);
+          palSetPad(GPIOA, 1);
+          break;
+        case (LAYER2):
+          // both LEDs off for Layer2
+          combo_disable();
+          palClearPad(GPIOA, 0);
+          palClearPad(GPIOA, 1);
           break;
         default:
           // shouldn't happen but just in case
           //combo_disable();
-          palClearPad(GPIOA, 1);
           palClearPad(GPIOA, 0);
+          palClearPad(GPIOA, 1);
           break;
     }
 
