@@ -19,8 +19,15 @@ This repository contains the custom keymaps for the EcoSteno keyboard. It also c
   - [2. Copy the Keymap to the QMK Directory](#2-copy-the-keymap-to-the-qmk-directory)
   - [3. Compile the Keymap](#3-compile-the-keymap)
 - [Flashing the Keyboard](#flashing-the-keyboard)
+  - [1. Plug in the keyboard to the computer.](#1-plug-in-the-keyboard-to-the-computer)
+  - [2. Press the reset button on the back of the keyboard near the USB port.](#2-press-the-reset-button-on-the-back-of-the-keyboard-near-the-usb-port)
+  - [3. Run the following command to flash the keyboard:](#3-run-the-following-command-to-flash-the-keyboard)
+  - [4. The keyboard will restart and the new keymap will be loaded.](#4-the-keyboard-will-restart-and-the-new-keymap-will-be-loaded)
   - [Issues](#issues)
     - [Bootloader not found](#bootloader-not-found)
+  - [Fixes](#fixes)
+    - [1. Run the following command:](#1-run-the-following-command)
+    - [2. Flash the keyboard again.](#2-flash-the-keyboard-again)
 
 # Related Articles
 
@@ -42,13 +49,13 @@ git clone git@github.com:afiqzudinhadi/EcoSteno-Firmware.git
 
 # Set Up QMK Environment
 
-## 1. Prepare Build Environment
+### 1. Prepare Build Environment
 
 ```bash
 brew install qmk/qmk/qmk
 ```
 
-## 2. Run QMK Setup
+### 2. Run QMK Setup
 
 ```bash
 qmk setup
@@ -56,13 +63,13 @@ qmk setup
 
 Answer `Y` to all the prompts.
 
-## 3. Copy the keyboard to the QMK directory
+### 3. Copy the keyboard to the QMK directory
 
 ```bash
 cp -r keyboards/* ~/qmk_firmware/keyboards/
 ```
 
-## 4. Test Build Environment
+### 4. Test Build Environment
 
 ```bash
 qmk compile -kb noll/ecosteno -km default
@@ -70,7 +77,7 @@ qmk compile -kb noll/ecosteno -km default
 
 # Remapping Keys
 
-## 1. Edit the Keymap File
+### 1. Edit the Keymap File
 
 Keymaps are located in the following directory:
 
@@ -80,7 +87,7 @@ keyboards/noll/ecosteno/keymaps/default/keymap.c
 
 Keymap guide can be found [here](https://docs.qmk.fm/keycodes_basic).
 
-## 2. Copy the Keymap to the QMK Directory
+### 2. Copy the Keymap to the QMK Directory
 
 If keymap file is edited, copy the keymap to the QMK directory:
 
@@ -88,7 +95,7 @@ If keymap file is edited, copy the keymap to the QMK directory:
 cp -r keyboards/* ~/qmk_firmware/keyboards/
 ```
 
-## 3. Compile the Keymap
+### 3. Compile the Keymap
 
 ```bash
 qmk compile -kb noll/ecosteno -km default
@@ -96,17 +103,25 @@ qmk compile -kb noll/ecosteno -km default
 
 # Flashing the Keyboard
 
-1. Plug in the keyboard to the computer.
-2. Press the reset button on the back of the keyboard near the USB port.
-   1. LEDs on the keyboard will turn off.
-3. Run the following command to flash the keyboard:
+### 1. Plug in the keyboard
+
+### 2. Press the reset button
+
+- The button is on the back of the keyboard near the USB port.
+- LEDs on the keyboard will turn off.
+
+### 3. Flash the keyboard
+
+Run the following command to flash the keyboard:
 
 ```bash
 qmk flash -kb noll/ecosteno -km default
 ```
 
-4. The keyboard will restart and the new keymap will be loaded.
-   1. LEDs on the keyboard will turn on.
+### 4. Check the keyboard
+
+- The keyboard will restart and the new keymap will be loaded.
+- LEDs on the keyboard will turn on.
 
 ## Issues
 
@@ -117,10 +132,12 @@ Bootloader not found. Make sure the board is in bootloader mode. See https://doc
 Trying again every 0.5s (Ctrl+C to cancel)...
 ```
 
-1. Run the following command:
+## Fixes
+
+### 1. Run QMK Doctor
 
 ```bash
 qmk doctor
 ```
 
-2. Flash the keyboard again.
+### 2. Flash the keyboard again
