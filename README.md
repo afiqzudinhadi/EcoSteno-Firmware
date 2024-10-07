@@ -19,6 +19,8 @@ This repository contains the custom keymaps for the EcoSteno keyboard. It also c
   - [2. Copy the Keymap to the QMK Directory](#2-copy-the-keymap-to-the-qmk-directory)
   - [3. Compile the Keymap](#3-compile-the-keymap)
 - [Flashing the Keyboard](#flashing-the-keyboard)
+  - [Issues](#issues)
+    - [Bootloader not found](#bootloader-not-found)
 
 # Related Articles
 
@@ -105,3 +107,20 @@ qmk flash -kb noll/ecosteno -km default
 
 4. The keyboard will restart and the new keymap will be loaded.
    1. LEDs on the keyboard will turn on.
+
+## Issues
+
+### Bootloader not found
+
+```bash
+Bootloader not found. Make sure the board is in bootloader mode. See https://docs.qmk.fm/#/newbs_flashing
+Trying again every 0.5s (Ctrl+C to cancel)...
+```
+
+1. Run the following command:
+
+```bash
+qmk doctor
+```
+
+2. Flash the keyboard again.
