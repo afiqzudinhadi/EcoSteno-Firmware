@@ -18,3 +18,6 @@ COMBO_ENABLE = yes		# Enable Key Combos
 STENO_ENABLE = yes		# Stenography keys
 STENO_PROTOCOL = geminipr # Can be geminipr or txbolt
 MOUSEKEY_ENABLE = no	# Mouse keys
+
+RAW_ENABLE = yes
+

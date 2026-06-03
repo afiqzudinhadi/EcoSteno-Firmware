@@ -17,6 +17,29 @@
 #include "keymap_steno.h"
 #include QMK_KEYBOARD_H
 
+#include "raw_hid.h"
+#define KG_REPORT_KEY   0x01
+#define KG_REPORT_LAYER 0x02
+void raw_hid_receive(uint8_t *data, uint8_t length) { (void)data; (void)length; }
+static void kg_send_key(uint8_t row, uint8_t col, bool pressed) {
+  uint8_t report[RAW_EPSIZE] = {0};
+  report[0] = KG_REPORT_KEY; report[1] = row; report[2] = col; report[3] = pressed ? 1 : 0;
+  raw_hid_send(report, sizeof(report));
+}
+
+static void kg_send_layer(uint8_t layer) {
+  uint8_t report[RAW_EPSIZE] = {0};
+  report[0] = KG_REPORT_LAYER; report[1] = layer;
+  raw_hid_send(report, sizeof(report));
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.key.row < MATRIX_ROWS && record->event.key.col < MATRIX_COLS) {
+    kg_send_key(record->event.key.row, record->event.key.col, record->event.pressed);
+  }
+  return true;
+}
+
 enum layers{
   STENO,
   // NKRO,
@@ -547,5 +570,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
           break;
     }
 
+    kg_send_layer(get_highest_layer(state));
     return state;
 }
