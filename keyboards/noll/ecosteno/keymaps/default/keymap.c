@@ -20,6 +20,9 @@
 #include "raw_hid.h"
 #define KG_REPORT_KEY   0x01
 #define KG_REPORT_LAYER 0x02
+#ifndef RAW_EPSIZE
+#define RAW_EPSIZE 32
+#endif
 void raw_hid_receive(uint8_t *data, uint8_t length) { (void)data; (void)length; }
 static void kg_send_key(uint8_t row, uint8_t col, bool pressed) {
   uint8_t report[RAW_EPSIZE] = {0};
