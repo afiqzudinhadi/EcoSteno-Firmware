@@ -6,6 +6,8 @@ This repository contains the custom keymaps for the EcoSteno keyboard. It also c
 
 - [EcoSteno Custom Keymaps](#ecosteno-custom-keymaps)
 - [Table of Contents](#table-of-contents)
+- [Hardware Info](#hardware-info)
+- [Current Keymap](#current-keymap)
 - [Related Articles](#related-articles)
 - [Pre-requisites](#pre-requisites)
 - [Clone Repository](#clone-repository)
@@ -28,6 +30,85 @@ This repository contains the custom keymaps for the EcoSteno keyboard. It also c
   - [Fixes](#fixes)
     - [1. Run QMK Doctor](#1-run-qmk-doctor)
     - [2. Flash the keyboard again](#2-flash-the-keyboard-again)
+
+# Hardware Info
+
+| Property | Value |
+|----------|-------|
+| Keyboard | EcoSteno |
+| Keys | 28 (2 top + 12+12 main + 4 thumbs) |
+| MCU | STM32F103 |
+| Firmware | QMK |
+| Bootloader | stm32duino |
+| Connection | USB |
+| USB Vendor ID | `0xFEED` |
+| USB Product ID | `0x3621` |
+| Device Version | `1.1.2` |
+| Manufacturer | Noll Electronics LLC |
+| Steno Protocol | GeminiPR |
+| LEDs | Red (GPIOA 0), Green (GPIOA 1) |
+
+# Current Keymap
+
+Key positions reference:
+```
+        0        1                    2        3
+ 4  5   6   7   8   9  | 10  11  12  13  14  15
+16 17  18  19  20  21  | 22  23  24  25  26  27
+                28  29  | 30  31
+```
+
+### Layer 0: STENO (Plover / GeminiPR)
+```
+           #2         #4                       #8         #0
+->QWRT  S  T  P  H  *  |  *  F  P  L  T  D
+  _     S  K  W  R  *  |  *  R  B  G  S  Z
+                A  O   |  E  U
+
+LED: green on, red off
+```
+
+### Layer 1: QWERTY
+```
+          TAB       ESC                    ENTER      BSPC
+LSHFT  Q  W  E  R  T  |  Y  U  I  O  P    '
+[L1]   Z  X  C  V  B  |  N  M  ,  .  /    [CAPS]
+              CTRL GUI | SPC  ALT
+
+LED: red on, green off
+
+Combos (QWERTY + QWERTY_CAPS):
+  top+bottom row same col = virtual home row:
+    Q+Z=A  W+X=S  E+C=D  R+V=F  T+B=G  Y+N=H  U+M=J  I+,=K  O+.=L  P+/=;
+  top row + modifier key = numbers:
+    Q+TAB=1  W+TAB=2  E+ESC=3  R+ESC=4  T+ESC=5
+    Y+ENT=6  U+ENT=7  I+ENT=8  O+BSP=9  P+BSP=0
+  CAPS layer: same combos produce shifted output (! @ # $ % ^ & * ( ) :)
+[L1] = hold opens LAYER1
+[CAPS] = hold activates QWERTY_CAPS (shifted combos)
+```
+
+### Layer 2: QWERTY_CAPS (shift layer)
+```
+         S(TAB)    S(ESC)                S(ENTER)   S(BSPC)
+LSHFT  Q  W  E  R  T  |  Y  U  I  O  P    "
+[L1]   Z  X  C  V  B  |  N  M  <  >  ?    _
+              CTRL GUI | SPC  ALT
+
+All alpha/symbol keys output shifted versions.
+LED: red on, green off
+```
+
+### Layer 3: LAYER1 (nav/symbols)
+```
+            TAB       ESC                       ENTER      BSPC
+->STEN  `  _  _  \  VOL+  |  +   [   UP    ]    *     =
+  _     Z  X  C  V  VOL-  |  -  LEFT DOWN RIGHT /   RSHFT
+               CTRL  GUI  | SPC  ALT
+
+LED: both red and green on
+->STEN = switch to STENO layer
+```
 
 # Related Articles
 
